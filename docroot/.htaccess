@@ -1,5 +1,5 @@
 <FilesMatch "\.inc\.php$">
-	Order deny
+	Order deny,allow
 	Deny from all
 </FilesMatch>
 

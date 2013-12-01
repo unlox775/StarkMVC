@@ -4,15 +4,15 @@
 
 ///  MODIFY this line to set the path to the Controller.class.php
 $__dirname_file = dirname(__FILE__);
-require_once($__dirname_file. '/../Stark/Controller.class.php');
+require_once($__dirname_file. '/../lib/Stark/Controller.class.php');
 $ctl = new Stark__Controller
 	///  MODIFY these to set paths to each resource (hardcoding absolute will be slightly faster)
 	( $_SERVER['REQUEST_URI'],
 	  array( 'lib_path'    	   => $__dirname_file .'/../lib', // directory with Stark libraries
-			 'config_path' 	   => $__dirname_file .'/../application/stark-config.inc.php',
-			 'controller_path' => $__dirname_file .'/../application/controller',
-			 'model_path'      => $__dirname_file .'/../application/model',
-			 )
+                 'config_path' 	   => $__dirname_file .'/../application/stark-config.inc.php',
+                 'controller_path' => $__dirname_file .'/../application/controller',
+                 'model_path'      => $__dirname_file .'/../application/model',
+                 )
 	 );
 unset($__dirname_file);
 
