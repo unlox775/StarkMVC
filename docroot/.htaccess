@@ -1,0 +1,8 @@
+<FilesMatch "\.inc\.php$">
+	Order deny
+	Deny from all
+</FilesMatch>
+
+RewriteEngine On
+RewriteCond %{REQUEST_URI} \.ajax$
+RewriteRule ^.*$ /controller.inc.php [NC,L]
