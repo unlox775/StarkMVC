@@ -402,4 +402,34 @@ class Stark__View {
 		}
 		require( $__file );
 	}
+
+
+	//////////////////////////
+	///  Shortcuts and Helpers
+
+    public function i($input_type, $field, $fill_obj = null, $this_value = null, $attributes = '') { return $this->input_attrs($input_type, $field, $fill_obj, $this_value, $attributes); }
+    public function text(    $field, $fill_obj = null, $this_value = null, $attributes = '') { return $this->input_attrs(__FUNCTION__, $field, $fill_obj, $this_value, $attributes); }
+    public function textarea($field, $fill_obj = null, $this_value = null, $attributes = '') { return $this->input_attrs(__FUNCTION__, $field, $fill_obj, $this_value, $attributes); }
+    public function password($field, $fill_obj = null, $this_value = null, $attributes = '') { return $this->input_attrs(__FUNCTION__, $field, $fill_obj, $this_value, $attributes); }
+    public function radio(   $field, $fill_obj = null, $this_value = null, $attributes = '') { return $this->input_attrs(__FUNCTION__, $field, $fill_obj, $this_value, $attributes); }
+    public function checkbox($field, $fill_obj = null, $this_value = null, $attributes = '') { return $this->input_attrs(__FUNCTION__, $field, $fill_obj, $this_value, $attributes); }
+    public function option(  $field, $fill_obj = null, $this_value = null, $attributes = '') { return $this->input_attrs(__FUNCTION__, $field, $fill_obj, $this_value, $attributes); }
+    public function la() { return $this->last_input_advice; }
+    public function err($field, $form_id = null) { return $this->has_error($field, $form_id) ? 'has-error' : ''; }
+    public function all_clean($fill_with_if_not_clean = null) {
+    	if ( $this->are_errors() ) {
+    		if ( ! is_null($fill_with_if_not_clean) ) { $this->fill($_POST); }
+    		return false;
+    	}
+    	return true;
+    }
+
+    public function require_all($form, $fields) { 
+    	foreach ( $fields as $col ) {
+    		if ( empty( $form[ $col ] ) ) {
+    			$this->add_error($col, [ucfirst($col) .' is required']);
+    		}
+    	}
+    }
+
 }
